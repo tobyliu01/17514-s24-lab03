@@ -99,10 +99,10 @@ public class ArrayIntQueue implements IntQueue {
             int newCapacity = 2 * oldCapacity + 1;
             int[] newData = new int[newCapacity];
             for (int i = head; i < oldCapacity; i++) {
-                newData[i - head] = elementData[i];
+                newData[i - head] = elementData[i]; // Move the data from head to the end.
             }
             for (int i = 0; i < head; i++) {
-                newData[head - i] = elementData[i];
+                newData[i + oldCapacity - head] = elementData[i]; // Move the data from the beginning to the head.
             }
             elementData = newData;
             head = 0;
